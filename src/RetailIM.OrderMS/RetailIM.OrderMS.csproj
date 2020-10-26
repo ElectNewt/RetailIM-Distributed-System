@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <nullable>enable</nullable>
+    <!--
+    issue with the .net 5.0 preview sdk 
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.20" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RetailIM.Data\RetailIM.Data.csproj" />
+    <ProjectReference Include="..\RetailIM.Model\RetailIM.Model.csproj" />
+    <ProjectReference Include="..\RetailIM.OrderMS.BackgroundWorkers\RetailIM.OrderMS.BackgroundWorkers.csproj" />
+    <ProjectReference Include="..\RetailIM.ServicesDependencies\RetailIM.ServicesDependencies.csproj" />
+    <ProjectReference Include="..\RetailIM.Services\RetailIM.Services.csproj" />
+    <ProjectReference Include="..\Shared.Data\Shared.Data.csproj" />
+    <ProjectReference Include="..\Shared.MessageBus\Shared.MessageBus.csproj" />
+  </ItemGroup>
+
+
+</Project>

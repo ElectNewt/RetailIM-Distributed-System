@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <nullable>enable</nullable>
+    <treatwarningsaserrors>true</treatwarningsaserrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared.MessageBus\Shared.MessageBus.csproj" />
+  </ItemGroup>
+
+</Project>

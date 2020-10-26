@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <nullable>enable</nullable>
+    <treatwarningsaserrors>true</treatwarningsaserrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RetailIM.Model\RetailIM.Model.csproj" />
+    <ProjectReference Include="..\Shared.ROP\Shared.ROP.csproj" />
+  </ItemGroup>
+
+</Project>

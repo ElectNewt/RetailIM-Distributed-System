@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <nullable>enable</nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RetailIM.Data\RetailIM.Data.csproj" />
+    <ProjectReference Include="..\RetailIM.Services\RetailIM.Services.csproj" />
+  </ItemGroup>
+
+</Project>

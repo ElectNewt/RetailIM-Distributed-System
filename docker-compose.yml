@@ -1,0 +1,56 @@
+version: "3.8"
+services:
+    rabbitmq:
+        container_name: rabbitmq
+        ports:
+            - 5672:5672
+            - 15672:15672
+        volumes: 
+            - ./Tools/RabbitMQ/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
+            - ./Tools/RabbitMQ/definitions.json:/etc/rabbitmq/definitions.json
+        image: rabbitmq:3-management
+    mysql:
+        container_name: mysql
+        ports: 
+            - 4306:3306
+        environment:
+            - MYSQL_DATABASE=retailim
+            - MYSQL_ROOT_PASSWORD=test
+        volumes:
+            - ./src/Database/:/docker-entrypoint-initdb.d/
+        image: mysql:5.6
+    
+    webapi:
+        container_name: webapi
+        ports:
+            - 8080:80
+            - 8081:443
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Production     
+        build:
+            context: .
+            dockerfile: ./src/RetailIM.WebApi/Dockerfile
+        restart: on-failure        
+        depends_on:
+            - rabbitmq
+        links:
+            - rabbitmq
+
+    
+    orderms:
+        container_name: orderms
+        ports:
+            - 8180:80
+            - 8181:443
+        environment: 
+            - ASPNETCORE_ENVIRONMENT=Production  
+        build: 
+            context: .
+            dockerfile: ./src/RetailIM.OrderMS/Dockerfile
+        restart: on-failure
+        depends_on:
+            - rabbitmq
+            - mysql
+        links:
+            - mysql
+            - rabbitmq
